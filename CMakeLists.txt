@@ -72,12 +72,8 @@ endif()
 # Problem 3: MLA
 
 if (TARGET_VENDOR STREQUAL "AMD")
-add_library(mla SHARED src/mla/mla.cpp)
-target_link_libraries(mla hip::device timer)
-set_target_properties(mla PROPERTIES COMPILE_FLAGS "--save-temps")
 
 
-target_include_directories(mla PRIVATE include)
 
 add_library(mla_test tests/mla/mla_test.cpp)
 target_include_directories(mla_test PRIVATE tests/checker)
@@ -188,6 +184,6 @@ find_package(Torch CONFIG REQUIRED)
 find_library(TORCH_PYTHON_LIBRARY torch_python PATH ${TORCH_INSTALL_PREFIX}/lib)
 add_library(mla SHARED src/mla/mla_pybind.cpp src/mla/mla.cpp)
 set_source_files_properties(mla PROPERTIES LANGUAGE HIP)
-target_include_directories(mla PRIVATE ${Python3_INCLUDE_DIRS})
-target_link_libraries(mla PRIVATE ${TORCH_PYTHON_LIBRARY} ${TORCH_LIBRARIES} hip::device)
-set_target_properties(mla PROPERTIES PREFIX "")
+target_include_directories(mla PRIVATE ${Python3_INCLUDE_DIRS} include)
+target_link_libraries(mla PRIVATE ${TORCH_PYTHON_LIBRARY} ${TORCH_LIBRARIES} hip::device timer)
+set_target_properties(mla PROPERTIES PREFIX "" COMPILE_FLAGS "--save-temps")
