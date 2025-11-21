@@ -3,6 +3,7 @@
 🏆 Grand Prize Winner Project for AMD Developer Challenge 2025
 
 ### News 🔥
+- [2025/11] [Easily Build and Share ROCm Kernels with Hugging Face](https://huggingface.co/blog/build-rocm-kernels) – Discover how to easily build and share RadeonFlow_Kernels using [Hugging Face's kernel-builder](https://github.com/huggingface/kernel-builder).
 
 - [2025/06] [AMD Developer Cloud](https://www.amd.com/en/developer/resources/cloud-access/amd-developer-cloud.html) now provides free AMD Instinct Accelerators, you can try out our project using their MI300X.
 
