@@ -1,0 +1,11 @@
+name: default
+services:
+  torch:
+    image: rocm/pytorch:rocm6.3.1_ubuntu22.04_py3.10_pytorch
+    volumes:
+      - .:/workspace
+      - .vscode-server:/root/.vscode-server
+      - .popcorn.yaml:/root/.popcorn.yaml
+    init: true
+    tty: true
+    command: sleep inf
